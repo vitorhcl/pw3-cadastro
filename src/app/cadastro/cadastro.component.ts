@@ -11,10 +11,10 @@ export class CadastroComponent {
 
   constructor(private builder: FormBuilder){
     this.cadastroForm = builder.group({
-      nome: [''],
+      nome: ['', Validators.required],
       usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)] ],
-      email: ['', [Validators.required, Validators.email]],
-      senha: ['', Validators.required],
+      email:['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
+      senha: ['', Validators.required, Validators.minLength(8), Validators.maxLength(12)],
       confirmaSenha: ['', Validators.required],
       aceite: [false, Validators.requiredTrue]
     }, {validators: this.checkPasswords})
@@ -22,7 +22,7 @@ export class CadastroComponent {
 
   checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => {
     let pass = group.get('senha')?.value;
-    let confirmPass = group.get('confirmaSenha')?.value
+    let confirmPass = group.get('confirmaSenha')?.value;
     return pass === confirmPass ? null : { notSame: true }
   }
 
