@@ -1,5 +1,28 @@
+div {
+  --cor_input: #222222;
+  --cor_placeholder: #999999;
+  --altura_input: 2.5rem;
+  --tamanho_fonte_input: 1.15rem;
+}
+
 .erro {
   color: rgb(255, 71, 71);
+}
+
+input, select, textarea {
+  color: var(--cor_input);
+}
+
+textarea:focus, input:focus {
+  color: var(--cor_input);
+}
+
+.form-control:input {
+  font-size: var(--tamanho_fonte_input);
+}
+
+.form-control::placeholder {
+  color: var(--cor_placeholder);
 }
 
 .register-form {

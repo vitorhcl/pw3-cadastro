@@ -5,30 +5,30 @@
 
       <div class="form-group">
         <label class="text-white">Nome</label>
-        <input type="text" class="form-control" formControlName="nome"/>
-        <div class="erro" *ngIf="cadastroForm.get('nome')?.errors?.['required'] && cadastroForm.get('nome')?.touched">
+        <input type="text" placeholder="João" class="form-control" formControlName="nome"/>
+        <div class="erro" *ngIf="cadastroForm.get('nome')?.errors?.['required'] && cadastroForm.get('nome')?.dirty">
           Nome obrigatório
         </div>
       </div>
 
       <div class="form-group">
         <label class="text-white">Usuário</label>
-        <input type="text" class="form-control" formControlName="usuario"/>
-        <div class="erro" *ngIf="cadastroForm.get('usuario')?.errors?.['required'] && cadastroForm.get('usuario')?.touched">
+        <input type="text" placeholder="joao291" class="form-control" formControlName="usuario"/>
+        <div class="erro" *ngIf="cadastroForm.get('usuario')?.errors?.['required'] && cadastroForm.get('usuario')?.dirty">
           Usuário obrigatório
         </div>
-        <div class="erro" *ngIf="(cadastroForm.get('usuario')?.errors?.['minlength'] || cadastroForm.get('usuario')?.errors?.['maxlength']) && cadastroForm.get('usuario')?.touched">
+        <div class="erro" *ngIf="(cadastroForm.get('usuario')?.errors?.['minlength'] || cadastroForm.get('usuario')?.errors?.['maxlength']) && cadastroForm.get('usuario')?.dirty">
           Usuário deve estar entre 3 e 15 caracteres
         </div>
       </div>
 
       <div class="form-group">
         <label class="text-white">E-mail</label>
-        <input type="email" class="form-control" formControlName="email"/>
-        <div class="erro" *ngIf="cadastroForm.get('email')?.errors?.['required'] && cadastroForm.get('email')?.touched">
+        <input type="email" placeholder="joao291@seuemail.com" class="form-control" formControlName="email"/>
+        <div class="erro" *ngIf="cadastroForm.get('email')?.errors?.['required'] && cadastroForm.get('email')?.dirty">
           E-mail obrigatório
         </div>
-        <div class="erro" *ngIf="cadastroForm.get('email')?.errors?.['email'] && cadastroForm.get('email')?.touched">
+        <div class="erro" *ngIf="cadastroForm.get('email')?.errors?.['email'] && cadastroForm.get('email')?.dirty">
           E-mail inválido
         </div>
       </div>
@@ -36,20 +36,21 @@
       <div class="form-group">
         <label class="text-white">Senha</label>
         <div class="input-group">
-          <input [type]="mostrarCampoSenha ? 'text' : 'password'" class="form-control" formControlName="senha"/>
+          <input placeholder="●●●●●●●●" [type]="mostrarCampoSenha ? 'text' : 'password'" class="form-control" formControlName="senha"/>
           <div class="input-group-append">
             <button class="input-group-text" (click)="mostrarCampoSenha = !mostrarCampoSenha">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
                 <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
                 <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/>
               </svg>
+
             </button>
           </div>
         </div>
-        <div class="erro" *ngIf="cadastroForm.get('senha')?.errors?.['required'] && cadastroForm.get('senha')?.touched">
+        <div class="erro" *ngIf="cadastroForm.get('senha')?.errors?.['required'] && cadastroForm.get('senha')?.dirty">
           Senha obrigatória
         </div>
-        <div class="erro" *ngIf="(cadastroForm.get('senha')?.errors?.['minlength'] || cadastroForm.get('senha')?.errors?.['maxlength']) && cadastroForm.get('senha')?.touched">
+        <div class="erro" *ngIf="(cadastroForm.get('senha')?.errors?.['minlength'] || cadastroForm.get('senha')?.errors?.['maxlength']) && cadastroForm.get('senha')?.dirty">
           Senha deve estar entre 8 e 12 caracteres
         </div>
       </div>
@@ -57,7 +58,7 @@
       <div class="form-group">
         <label class="text-white">Confirmar senha</label>
         <div class="input-group">
-          <input [type]="mostrarCampoConfirmarSenha ? 'text' : 'password'" class="form-control" formControlName="confirmaSenha"/>
+          <input placeholder="●●●●●●●●" [type]="mostrarCampoConfirmarSenha ? 'text' : 'password'" class="form-control" formControlName="confirmaSenha"/>
           <div class="input-group-append">
             <button class="input-group-text" (click)="mostrarCampoConfirmarSenha = !mostrarCampoConfirmarSenha">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
@@ -67,10 +68,10 @@
             </button>
           </div>
         </div>
-        <div class="erro" *ngIf="cadastroForm.get('confirmaSenha')?.errors?.['required'] && cadastroForm.get('confirmaSenha')?.touched">
+        <div class="erro" *ngIf="cadastroForm.get('confirmaSenha')?.errors?.['required'] && cadastroForm.get('confirmaSenha')?.dirty">
           Confirme a senha
         </div>
-        <div class="erro" *ngIf="cadastroForm.errors?.['differentPasswords'] && cadastroForm.get('confirmaSenha')?.touched">
+        <div class="erro" *ngIf="cadastroForm.errors?.['differentPasswords'] && cadastroForm.get('confirmaSenha')?.dirty">
           As senhas estão diferentes
         </div>
       </div>
@@ -78,7 +79,7 @@
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" formControlName="aceite"/>
         <label for="aceitaTermos" class="form-check-label text-white">Eu li e concordo com os Termos</label>
-        <div class="erro" *ngIf="cadastroForm.get('aceitaTermos')?.errors?.['required'] && cadastroForm.get('aceitaTermos')?.touched">
+        <div class="erro" *ngIf="cadastroForm.get('aceitaTermos')?.errors?.['required'] && cadastroForm.get('aceitaTermos')?.dirty">
           Aceite os Termos de uso
         </div>
       </div>
